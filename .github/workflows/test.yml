@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   schedule:
     # Every weekday
-    - cron: '*/10 * * * 1-5'
+    - cron: '*/30 * * * 1-5'
 
 jobs:
   print:
