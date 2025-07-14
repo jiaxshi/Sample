@@ -29,5 +29,5 @@ runs:
       run: bash ${{ github.action_path }}/scripts/build-env-setup.sh ${{ inputs.ros2-distro }} ${{ inputs.src-dir }}
       shell: bash
     - name: Build Debian packages
-      run: bash ${{ github.action_path }}/scripts/build-debian.sh ${{ inputs.ros2-distro }} ${{ inputs.src-dir }} ${{ inputs.output-dir }} ${{ inputs.unique-version }}
+      run: bash ${{ github.action_path }}/scripts/build-debian.sh ${{ inputs.ros2-distro }} ${{ inputs.src-dir }} ${{ github.workspace }}/${{ inputs.output-dir }} ${{ inputs.unique-version }}
       shell: bash

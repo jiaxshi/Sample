@@ -5,7 +5,7 @@ UNIQUE_VERSION="$4"
 
 echo "SRC_DIR: ${SRC_DIR}"
 
-mkdir -p $SRC_DIR/$OUTPUT_DIR
+mkdir -p $OUTPUT_DIR
 cd ${SRC_DIR}
 
 # Source ROS 2 environment
@@ -35,4 +35,5 @@ do
   # Move build result to the output directory
   mv ../*.deb $OUTPUT_DIR &&
    (mv ../*.ddeb $OUTPUT_DIR || true)
+  ls -al $OUTPUT_DIR
 done
