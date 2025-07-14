@@ -1,0 +1,33 @@
+name: 'ROS 2 Build Debian Package'
+description: 'Build Debian packages from a ROS 2 project'
+author: 'Jiaxing Shi <jiaxshi@qti.qualcomm.com>'
+branding:
+  icon: 'monitor'
+  color: 'blue'
+inputs:
+  ros2-distro:
+    description: 'The ROS 2 distribution to be used.'
+    required: false
+    default: 'jazzy'
+  output-dir:
+    description: 'The output directory of build results.'
+    required: false
+    default: 'package'
+  unique-version:
+    description: 'Make the package version unique by using a timestamp for the Debian revision number.'
+    required: false
+    default: 'false'
+  src-dir:
+    description: 'The source directory of the ROS 2 project.'
+    required: false
+    default: 'src'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup dependencies
+      run: bash ${{ github.action_path }}/scripts/build-env-setup.sh ${{ inputs.ros2-distro }} ${{ inputs.src-dir }}
+      shell: bash
+    - name: Build Debian packages
+      run: bash ${{ github.action_path }}/scripts/build-debian.bash ${{ inputs.ros2-distro }} ${{ inputs.src-dir }} ${{ inputs.output-dir }} ${{ inputs.unique-version }}
+      shell: bash
