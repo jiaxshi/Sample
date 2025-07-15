@@ -30,6 +30,8 @@ rosdep update
 # Temp link for debug purpose
 sudo wget https://github.com/qualcomm-qrb-ros/qrb_ros_distro/blob/080a6ba7bbcd335736335125f11cdd31c05c9f54/jazzy/qcom-distribution.yaml -O /etc/ros/rosdep/sources.list.d/qcom-distribution.yaml
 echo "yaml file:///etc/ros/rosdep/sources.list.d/qcom-distribution.yaml" | sudo tee -a /etc/ros/rosdep/sources.list.d/20-default.list
+rosdep update
+sudo apt install qcom-camx
 
 # Install required dependencies
 rosdep install -y --rosdistro "$ROS2_DISTRO" --from-paths ${SRC_DIR} --ignore-src
