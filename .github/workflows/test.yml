@@ -23,3 +23,17 @@ jobs:
       - name: cat
         run: |
           git branch
+  print2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo test
+        run: |
+          echo "This is a test."
+    
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          ref: test
+      - name: cat
+        run: |
+          git branch
