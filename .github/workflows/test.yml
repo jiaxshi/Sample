@@ -4,9 +4,9 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-  schedule:
-    # Every weekday
-    - cron: '*/30 * * * 1-5'
+  # schedule:
+  #   # Every weekday
+  #   - cron: '*/30 * * * 1-5'
 
 jobs:
   print:
